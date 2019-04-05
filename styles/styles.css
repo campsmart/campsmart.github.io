@@ -1,1 +1,52 @@
-/* CampSmart */
+/* Camp Smart */
+body{
+    background-image: url("../images/lake-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /*background-color: white;*/
+}
+
+#header{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    /*background-color: blue;*/
+}
+#header h1{
+    font-size: 28px;
+    font-weight: bold;
+}
+#logo{
+    width: 50px;
+    height: 50px;
+}
+
+#forms, #results{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 25px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+#forms #locationInput h3, #forms #dateInput h3{
+    font-size: 20px;
+}
+#forms #locationInput label, #forms #dateInput label{
+    font-size: 16px;
+}
+#submitButton{
+    align-self: center;
+}

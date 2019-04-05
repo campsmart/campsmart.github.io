@@ -2,13 +2,42 @@
 <html>
 
 <head>
-    <title>CampSmart</title>
+    <title>Camp Smart</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <meta charset="utf-8">
 </head>
 
 <body>
-    <h1>CampSmart</h1>
-    <p>Plan your next outdoor adventure the smart way</p>
+<div id="container">
+    <div id="header">
+        <image src="images/campsmart.png" alt="Camp Smart logo" id="logo">
+        <h1>Camp Smart</h1>
+    </div>
+
+    <form action="results.html">
+    <div id="forms">
+        <div id="locationInput">
+            <h3>Where to camp?</h3>
+            <label for="location">Location</label>
+            <input id="location" name="location" type="text">
+        </div>
+
+        <div id="dateInput">
+            <h3>When to camp?</h3>
+            <label for="fromDate">From</label>
+            <input id="fromDate" name="fromDate" type="text" pattern="[0-1]?[0-9]/[0-3]?[0-9]/[0-9]{4}" placeholder="mm/dd/yyyy">
+
+            <label for="toDate">To</label>
+            <input id="toDate" name="toDate" type="text" pattern="[0-1]?[0-9]/[0-3]?[0-9]/[0-9]{4}" placeholder="mm/dd/yyyy">
+        </div>
+        
+        </br>
+        <input type="submit" value="Find Campsites" id="submitButton">
+    </div>
+    </form>
+
+    <script src="node_modules/jquery/src/jquery.js"></script>
+</div>
 </body>
 
 </html>

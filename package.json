@@ -1,0 +1,23 @@
+{
+  "name": "campsmart",
+  "version": "1.0.0",
+  "description": "Plan your next outdoor adventure the smart way",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/campsmart/campsmart.github.io.git"
+  },
+  "author": "Chantalle, Dennis, Diana, Helena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/campsmart/campsmart.github.io/issues"
+  },
+  "homepage": "https://github.com/campsmart/campsmart.github.io#readme"
+}
