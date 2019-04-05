@@ -4,23 +4,126 @@
 <head>
     <title>Camp Smart</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <meta charset="utf-8">
 </head>
 
 <body>
 <div id="container">
-
+    <a href="index.html">
     <div id="header">
         <image src="images/campsmart.png" alt="Camp Smart logo" id="logo">
         <h1>Camp Smart</h1>
     </div>
+    </a>
 
     <div id="results">
-        <p>Here is where we will see the results!</p>
+
+        <!-- Left side: list of the closest camp sites -->
+        <div id="campsiteList">
+            <!-- This is hard coded for now. The website will NOT hard code campsite information! -->
+            <div class="preview">
+                <h1>Starry Sky</h1>
+                <image src="./images/camp-tent.jpg" class="previewImage">
+                <h2>7 mi</h2>    
+            </div>
+
+            <div class="preview">
+                <h1>Buckeye Flats</h1>
+                <image src="./images/camp-mountain.jpg" class="previewImage">
+                <h2>15 mi</h2>
+            </div>
+
+            <div class="preview">
+                <h1>Deep Creek</h1>
+                <image src="./images/creek.jpg" class="previewImage">
+                <h2>31 mi</h2>
+            </div>
+
+            <div class="preview">
+                <h1>Lazy Shores</h1>
+                <image src="./images/beach-tent.jpg" class="previewImage">
+                <h2>54 mi</h2>
+            </div>
+        </div>
+
+        <!-- Center: information about the selected campsite-->
+        <div id="campsiteDetails">
+            <h1>Starry Sky Campground</h1>
+            <image src="./images/camp-tent.jpg" class="campsiteImage">
+            <p>Starry Sky Campground is a remote spot out in the Mojave desert. It is known for its beautiful rock formations, peculiar wildlife, and stunning star-gazing opportunities</p>
+            <div class="amenities">
+                <span>
+                    <i class="fas fa-toilet"></i>
+                    <i class="fas fa-trash"></i>
+                    <i class="fas fa-shower"></i>
+                    <i class="fas fa-phone-slash"></i>
+                </span>
+            </div>
+        </div>
+
+        <!-- Right side: daily weather forecast for the selected days -->
+        <div id="weatherForecast">
+            <!-- This is hard coded for now. The website will NOT hard code campsite information! -->
+            <div class="weatherDay">
+                <h1>April 10</h1>
+                <div class="weatherStats">
+                    <span><i class="fas fa-sun"></i></span>
+                    <div class="weatherHiLo">
+                        <h2>72°F</h2>
+                        <h2>51°F</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="weatherDay">
+                <h1>April 11</h1>
+                <div class="weatherStats">
+                    <span><i class="fas fa-sun"></i></span>
+                    <div class="weatherHiLo">
+                        <h2>68°F</h2>
+                        <h2>49°F</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="weatherDay">
+                <h1>April 12</h1>
+                <div class="weatherStats">
+                    <span><i class="fas fa-wind"></i></span>
+                    <div class="weatherHiLo">
+                        <h2>69°F</h2>
+                        <h2>43°F</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="weatherDay">
+                <h1>April 13</h1>
+                <div class="weatherStats">
+                    <span><i class="fas fa-cloud"></i></span>
+                    <div class="weatherHiLo">
+                        <h2>62°F</h2>
+                        <h2>41°F</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="weatherDay">
+                <h1>April 14</h1>
+                <div class="weatherStats">
+                    <span><i class="fas fa-cloud-rain"></i></span>
+                    <div class="weatherHiLo">
+                        <h2>63°F</h2>
+                        <h2>45°F</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="node_modules/jquery/src/jquery.js"></script>
-    
+    <!--
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script src="/Users/jehuti/WebApps/campsmart.github.io/components/WeatherDisplay.js" type="text/jsx"></script>
+    -->
 </div>
 </body>
 </html>

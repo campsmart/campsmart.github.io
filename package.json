@@ -4,6 +4,7 @@
   "description": "Plan your next outdoor adventure the smart way",
   "main": "index.js",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "jquery": "^3.3.1"
   },
   "devDependencies": {},

@@ -1,4 +1,3 @@
-/* Camp Smart */
 body{
     background-image: url("../images/lake-background.jpg");
     background-size: cover;
@@ -11,16 +10,15 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /*background-color: white;*/
 }
 
+/* CAMP SMART HEADER */
 #header{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     margin: 10px;
-    /*background-color: blue;*/
 }
 #header h1{
     font-size: 28px;
@@ -31,7 +29,8 @@ body{
     height: 50px;
 }
 
-#forms, #results{
+/* FORM INPUT */
+#forms{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -49,4 +48,91 @@ body{
 }
 #submitButton{
     align-self: center;
+}
+
+#results{
+    display: grid;
+    grid-template-columns: 15% 70% 15%
+}
+#campsiteList, #campsiteDetails, #weatherForecast{
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+#campsiteList{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: scroll;
+}
+.preview{
+    margin: 5px;
+    padding: 5px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+}
+.preview h1{
+    font-size: 20px;
+}
+.preview h2{
+    font-size: 12px;
+}
+.previewImage{
+    height: 50px;
+}
+#campsiteDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.campsiteImage{
+    width: 500px;
+}
+#campsiteDetails .amenities{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.amenities span{
+    font-size: 28px;
+}
+#weatherForecast{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: scroll;
+}
+.weatherDay{
+    margin: 5px;
+    padding: 5px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+}
+.weatherDay .weatherStats{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.weatherDay .weatherHiLo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.weatherDay h1{
+    font-size: 20px;
+}
+.weatherDay h2{
+    font-size: 14px;
+}
+.weatherDay span{
+    font-size: 28px;
 }
