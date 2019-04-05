@@ -89,17 +89,31 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
+#campsiteDetails h1{
+    font-size: 32px;
+    font-weight: bold;
+}
+#campsiteDetails h2{
+    font-size: 20px;
+}
 .campsiteImage{
     width: 500px;
 }
-#campsiteDetails .amenities{
+.amenities{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
-.amenities span{
-    font-size: 28px;
+.amenities i{
+    font-size: 30px;
+    margin: 5px;
+}
+.available{
+    color: green;
+}
+.unavailable{
+    color: red;
 }
 #weatherForecast{
     display: flex;
