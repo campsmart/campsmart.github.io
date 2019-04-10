@@ -1,8 +1,8 @@
-body{
+html {
     background-image: url("../images/lake-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: black;
+    background-color: rgb(158, 186, 202);
 }
 
 #container{
@@ -15,19 +15,26 @@ body{
 
 /* CAMP SMART HEADER */
 #header{
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     margin: 10px;
 }
+
 #header h1{
-    font-size: 28px;
+    display: inline-flex;
+    font-size: 100px;
     font-weight: bold;
+    text-shadow: 3px 5px 6px rgba(255, 255, 255, 0.5);
 }
+
 #logo{
-    width: 50px;
-    height: 50px;
+    display: inline-flex;
+    width: 65px;
+    height: 65px;
+    padding-right: 40px;
+    padding-bottom: 10px;
 }
 
 /* FORM INPUT */
@@ -36,10 +43,13 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    padding: 10px;
+    padding-top: 50px;
+    padding-bottom: 60px;
+    padding-left: 140px;
+    padding-right: 140px;
     border-radius: 25px;
-    margin: 10px;
-    background: rgba(255, 255, 255, 0.5);
+    margin-top: -30px;
+    background: rgba(255, 255, 255, 0.6);
 }
 #forms #locationInput h3, #forms #dateInput h3{
     font-size: 20px;
@@ -47,10 +57,50 @@ body{
 #forms #locationInput label, #forms #dateInput label{
     font-size: 16px;
 }
+#location {
+    font-size: 10pt;
+    width: 160px;
+    height: 15px;
+}
 #submitButton{
     align-self: center;
 }
+.find-me-button {
+    width: 5px;
+    height: 5px;
+    vertical-align: middle;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+#find-me-icon {
+    font-size: 13px;
+    vertical-align: bottom;
+    border: 0.5px solid rgb(0, 102, 204);
+    border-radius: 50%;
+    padding: 2.4px;
+}
+#icon-calendar {
+    border: 1px solid rgb(183, 183, 183);
+    padding: 2.8px;
+    background-color: rgb(255, 255, 255);
+    outline: 0.2px solid rgb(112, 112, 112);
+    align-content: flex-end;
+    vertical-align: middle;
+    margin-top: -2.5px;
+    margin-right: -5px;
+}
+#icon-search {
+    border: .9px solid rgb(183, 183, 183);
+    padding: 1.8px;
+    background-color: rgb(255, 255, 255);
+    outline: 0.2px solid rgb(112, 112, 112);
+    align-content: flex-end;
+    vertical-align: middle;
+    margin-top: -2.5px;
+    margin-right: -4px; 
+}
 
+/* CAMPSITE RESULTS */
 #results{
     display: grid;
     grid-template-columns: 15% 70% 15%;
