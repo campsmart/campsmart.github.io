@@ -4,6 +4,7 @@
 <head>
     <title>Camp Smart</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <meta charset="utf-8">
 </head>
 
@@ -18,17 +19,23 @@
     <div id="forms">
         <div id="locationInput">
             <h3>Where to camp?</h3>
-            <label for="location">Location</label>
-            <input id="location" name="location" type="text">
+            <label for="location">Location: </label>
+            <i class="fab fa-sistrix" id="icon-search"></i>
+            <input id="location" name="location" type="text" placeholder="Where do you want to go?">
+            <a href="#" class="find-me-button">
+                <i class="fas fa-location-arrow" id="find-me-icon"></i>
+            </a> 
         </div>
 
-        <div id="dateInput">
+        <div id="dateInput" class="input-container">
             <h3>When to camp?</h3>
-            <label for="fromDate">From</label>
-            <input id="fromDate" name="fromDate" type="text" pattern="[0-1]?[0-9]/[0-3]?[0-9]/[0-9]{4}" placeholder="mm/dd/yyyy">
+            <label for="fromDate">From: </label>
+            <i class="fas fa-calendar-alt" id="icon-calendar"></i>
+            <input id="fromDate" name="fromDate" type="date">
 
-            <label for="toDate">To</label>
-            <input id="toDate" name="toDate" type="text" pattern="[0-1]?[0-9]/[0-3]?[0-9]/[0-9]{4}" placeholder="mm/dd/yyyy">
+            <label for="toDate">To: </label>
+            <i class="fas fa-calendar-alt" id="icon-calendar"></i>
+            <input id="toDate" name="toDate" type="date">
         </div>
         
         </br>
