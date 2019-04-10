@@ -89,6 +89,17 @@ html {
     margin-top: -2.5px;
     margin-right: -5px;
 }
+#icon-cal {
+    border: 1px solid rgb(183, 183, 183);
+    padding: 2.8px;
+    background-color: rgb(255, 255, 255);
+    outline: 0.2px solid rgb(112, 112, 112);
+    align-content: flex-end;
+    vertical-align: middle;
+    margin-top: -2.5px;
+    margin-right: -5px;
+}
+
 #icon-search {
     border: .9px solid rgb(183, 183, 183);
     padding: 1.8px;
@@ -97,11 +108,16 @@ html {
     align-content: flex-end;
     vertical-align: middle;
     margin-top: -2.5px;
-    margin-right: -4px; 
+    margin-right: -4px;
 }
 
 /* CAMPSITE RESULTS */
 #results{
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    height: 70%;
+}
+#resultsContainer{
     display: grid;
     grid-template-columns: 15% 70% 15%;
     height: 70%;
