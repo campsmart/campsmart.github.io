@@ -108,7 +108,7 @@ html {
     padding: 10px;
     border-radius: 20px;
     margin: 10px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.75);
 }
 #campsiteList{
     display: flex;
@@ -148,6 +148,16 @@ html {
 }
 .campsiteImage{
     width: 500px;
+}
+/*#campsiteDetails h2,p,div{
+    align-self: flex-start;
+}*/
+#alerts{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
 }
 .amenities{
     display: flex;

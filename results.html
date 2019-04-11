@@ -23,8 +23,8 @@
         <div id="campsiteList">
             <!-- This is hard coded for now. The website will NOT hard code campsite information! -->
             <div class="preview">
-                <h1>Starry Sky</h1>
-                <image src="./images/camp-tent.jpg" class="previewImage">
+                <h1>Anacapa Island Campground</h1>
+                <image src="https://islandpackers.com/wp-content/uploads/2010/11/Photo-by-Tim-Hau-.Campground-Anacapa-Island.jpg" class="previewImage">
                 <h2>7 mi</h2>    
             </div>
 
@@ -49,15 +49,28 @@
 
         <!-- Center: information about the selected campsite-->
         <div id="campsiteDetails">
-            <h1>Starry Sky Campground</h1>
-            <image src="./images/camp-tent.jpg" class="campsiteImage">
-            <p>Starry Sky Campground is a remote spot out in the Mojave desert. It is known for its beautiful rock formations, peculiar wildlife, and stunning star-gazing opportunities</p>
-            <h2>Campsite Amenities</h2>
+            <h1 id="name">Anacapa Island Campground</h1>
+            <image src="http://islandpackers.com/wp-content/uploads/2010/11/Photo-by-Tim-Hau-.Campground-Anacapa-Island.jpg" class="campsiteImage">
+            <p id="description">Primitive camping is available (seven sites; $15 per night per site; reservations required). Picnic table, food storage box, and pit toilet are provided. No water is available. Distance from landing to campground is one-half mile and includes a 157-stair climb. </br>WARNING: Western gulls nest on Anacapa Island From April through mid-August. During this time, visitors will encounter seabird rookery conditions: guano, strong odor, constant noise, bird carcasses, and birds protecting their territory.</p>
+            <h2>Amenities</h2>
             <div class="amenities">
                 <i class="fas fa-toilet available"></i>
-                <i class="fas fa-trash available"></i>
-                <i class="fas fa-shower available"></i>
+                <i class="fas fa-trash unavailable"></i>
+                <i class="fas fa-tint unavailable"></i>
+                <i class="fas fa-shower unavailable"></i>
                 <i class="fas fa-phone-slash unavailable"></i>
+                <i class="fas fa-road unavailable"></i>
+            </div>
+            <h2>Directions</h2>
+            <p id="directions">Anacapa Island Campground is only accessible by boat. Visit our island transportation webpage for more information: http://www.nps.gov/chis/planyourvisit/island-transportation.htm</br>The hike to the campground is 157 stairs and .5 miles from the boat landing.
+            <a href="http://www.nps.gov/chis/planyourvisit/island-transportation.htm" id="directions">Directions</a>
+            </p>
+            <image src="./images/googlemaps.png" width="300px" id="map"/>
+
+            <div id="alerts">
+                <h2 class="alertCategory">Caution!</h2>
+                <h3 class="alertTitle">Tire chains may be required</h3>
+                <p class="alertDescription">When chain restrictions are in effect, tire chains are required for all vehicles in control areas, including vehicles with snow tires, 4WD vehicles, and AWD vehicles.</p>
             </div>
         </div>
 
