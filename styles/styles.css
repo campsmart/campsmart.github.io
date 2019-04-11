@@ -52,7 +52,7 @@ html {
 }
 #forms #locationInput h3, #forms #dateInput h3{
     font-size: 20px;
-    text-shadow: 2px 3px 4px rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.9);
 }
 #forms #locationInput label, #forms #dateInput label{
     font-size: 16px;
