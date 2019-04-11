@@ -112,19 +112,19 @@ html {
     margin: 2%;
     padding: 3%;
     border-radius: 5%;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.5);
 }
 #campsiteList, #weatherForecast {
     height: 600px;
     overflow: scroll;
 }
 /* These borders are just so we can see where divs are - remove later? */
-#results div {
+/*#results div {
     border: inset;
-    border-width: 1px;
-    border-color: lightgrey;
+    border-width: 2px;
+    border-color: gainsboro;
     border-radius: 5%;
-}
+}*/
 
 
 /* ========== Left-side campsite preview list ========== */
@@ -134,7 +134,7 @@ html {
     justify-content: space-between;
     align-items: center;
 }
-/* Each campsite preview display */
+/* ===== Each campsite preview display */
 #campsiteList div{
     margin: 2%;
     padding: 3%;
@@ -144,6 +144,10 @@ html {
     align-items: center;
     background: rgba(255, 255, 255, 0.25);
     border-radius: 5%;
+
+    border: inset;
+    border-width: 2px;
+    border-color: gainsboro;    
 }
 #campsiteList h1 {font-size: 20px;}
 #campsiteList h2 {font-size: 16px;}
@@ -158,7 +162,7 @@ html {
     align-items: center;
 }
 
-/* Each sub-section in center display */
+/* ===== Each sub-section in center display */
 #campsiteDetails > div {
 /* with flex:*/
 /*    display: flex;*/
@@ -171,31 +175,37 @@ html {
     text-align: center;
 
     padding: 3%;
+    margin: 1%;
     border-radius: 20px;
+    background: rgba(255, 255, 255, 0.25);
+
+    border: inset;
+    border-width: 2px;
+    border-color: gainsboro;
 }
 #campsiteDetails h1 {font-size: 28px;}
 #campsiteDetails h2 {font-size: 24px;}
 #campsiteDetails h3 {font-size: 20px;}
 #campsiteDetails p  {font-size: 16px;}
 
-/* Campsite overview sub-section */
+/* ===== Campsite overview sub-section */
 #campsiteDetails #overview .photo {width: 500px;}
 
-/* Campsite amenities sub-section */
+/* ===== Campsite amenities sub-section */
 #campsiteDetails #amenities div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;    
+    align-items: center;
 }
 #campsiteDetails #amenities i {font-size: 30px; margin: 5px;}
 #campsiteDetails #amenities .available {color: darkgreen;}
 #campsiteDetails #amenities .unavailable {color: darkred;}
 
-/* Campsite directions sub-section */
+/* ===== Campsite directions sub-section */
 #campsiteDetails #directions .map {width: 300px;}
 
-/* Campsite alerts sub-section */
+/* ===== Campsite alerts sub-section */
 #campsiteDetails #alerts div {display: flex; flex-direction: row; align-items: center; justify-content: center;}
 #campsiteDetails #alerts h2, #campsiteDetails #alerts i {color: red;}
 
@@ -208,7 +218,7 @@ html {
     align-items: center;
 }
 
-/* Forecast for each day */
+/* ===== Forecast for each day */
 #weatherForecast > div{
     margin: 2%;
     padding: 3%;
@@ -218,6 +228,11 @@ html {
     align-items: center;
     background: rgba(255, 255, 255, 0.25);
     border-radius: 5%;
+    background: rgba(255, 255, 255, 0.25);
+    
+    border: inset;
+    border-width: 2px;
+    border-color: gainsboro;
 }
 
 /* Div containing weather details */
