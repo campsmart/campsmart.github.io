@@ -1,18 +1,20 @@
+/* ==================== SHARED STYLES ==================== */
 html {
     background-image: url("../images/lake-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgb(158, 186, 202);
 }
-
 #container{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }
+#container > a:link, #container > a:visited {color: black;}
+#container > a:hover {color: aqua;}
 
-/* CAMP SMART HEADER */
+/* ========== Camp Smart header ========== */
 #header{
     display: inline-flex;
     flex-direction: row;
@@ -20,15 +22,13 @@ html {
     align-items: center;
     margin: 10px;
 }
-
 #header h1{
     display: inline-flex;
-    font-size: 100px;
+    font-size: 80px;
     font-weight: bold;
     text-shadow: 3px 5px 6px rgba(255, 255, 255, 0.5);
 }
-
-#logo{
+#header .logo{
     display: inline-flex;
     width: 65px;
     height: 65px;
@@ -36,7 +36,9 @@ html {
     padding-bottom: 10px;
 }
 
-/* FORM INPUT */
+
+
+/* ==================== LANDING PAGE ==================== */
 #forms{
     display: flex;
     flex-direction: column;
@@ -100,104 +102,148 @@ html {
     margin-right: -4px;
 }
 
-/* CAMPSITE RESULTS */
-#results{
+
+
+/* ==================== RESULTS PAGE ==================== */
+#results {
     display: grid;
     grid-template-columns: 15% 70% 15%
 }
-#campsiteList, #campsiteDetails, #weatherForecast{
-    padding: 10px;
-    border-radius: 20px;
-    margin: 10px;
+#results > div{
+    margin: 2%;
+    padding: 3%;
+    border-radius: 5%;
     background: rgba(255, 255, 255, 0.5);
 }
+#campsiteList, #weatherForecast {
+    height: 600px;
+    overflow: scroll;
+}
+/* These borders are just so we can see where divs are - remove later? */
+/*#results div {
+    border: inset;
+    border-width: 2px;
+    border-color: gainsboro;
+    border-radius: 5%;
+}*/
+
+
+/* ========== Left-side campsite preview list ========== */
 #campsiteList{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    overflow: scroll;
+    align-items: center;
 }
-.preview{
-    margin: 5px;
-    padding: 5px;
-    align-items: flex-start;
+/* ===== Each campsite preview display */
+#campsiteList div{
+    margin: 2%;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
+    border-radius: 5%;
+
+    border: inset;
+    border-width: 2px;
+    border-color: gainsboro;    
 }
-.preview h1{
-    font-size: 20px;
-}
-.preview h2{
-    font-size: 12px;
-}
-.previewImage{
-    height: 50px;
-}
-#campsiteDetails{
+#campsiteList h1 {font-size: 20px;}
+#campsiteList h2 {font-size: 16px;}
+#campsiteList .photo {width: 150px;}
+
+
+/* ========== Center display with individual campsite info ========== */
+#campsiteDetails {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
-#campsiteDetails h1{
-    font-size: 32px;
-    font-weight: bold;
+
+/* ===== Each sub-section in center display */
+#campsiteDetails > div {
+/* with flex:*/
+/*    display: flex;*/
+    /*flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;*/
+
+/* without flex: */    
+    display: block;
+    text-align: center;
+
+    padding: 3%;
+    margin: 1%;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.25);
+
+    border: inset;
+    border-width: 2px;
+    border-color: gainsboro;
 }
-#campsiteDetails h2{
-    font-size: 20px;
-}
-.campsiteImage{
-    width: 500px;
-}
-.amenities{
+#campsiteDetails h1 {font-size: 28px;}
+#campsiteDetails h2 {font-size: 24px;}
+#campsiteDetails h3 {font-size: 20px;}
+#campsiteDetails p  {font-size: 16px;}
+
+/* ===== Campsite overview sub-section */
+#campsiteDetails #overview .photo {width: 500px;}
+
+/* ===== Campsite amenities sub-section */
+#campsiteDetails #amenities div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
-.amenities i{
-    font-size: 30px;
-    margin: 5px;
-}
-.available{
-    color: green;
-}
-.unavailable{
-    color: red;
-}
+#campsiteDetails #amenities i {font-size: 30px; margin: 5px;}
+#campsiteDetails #amenities .available {color: darkgreen;}
+#campsiteDetails #amenities .unavailable {color: darkred;}
+
+/* ===== Campsite directions sub-section */
+#campsiteDetails #directions .map {width: 300px;}
+
+/* ===== Campsite alerts sub-section */
+#campsiteDetails #alerts div {display: flex; flex-direction: row; align-items: center; justify-content: center;}
+#campsiteDetails #alerts h2, #campsiteDetails #alerts i {color: red;}
+
+
+/* ========== Right-side weather forecast ========== */
 #weatherForecast{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    overflow: scroll;
 }
-.weatherDay{
-    margin: 5px;
-    padding: 5px;
-    align-items: flex-start;
+
+/* ===== Forecast for each day */
+#weatherForecast > div{
+    margin: 2%;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
+    border-radius: 5%;
+    background: rgba(255, 255, 255, 0.25);
+    
+    border: inset;
+    border-width: 2px;
+    border-color: gainsboro;
 }
-.weatherDay .weatherStats{
+
+/* Div containing weather details */
+#weatherForecast > div > div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.weatherDay .weatherHiLo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.weatherDay h1{
-    font-size: 20px;
-}
-.weatherDay h2{
-    font-size: 14px;
-}
-.weatherDay span{
-    font-size: 28px;
-}
+#weatherForecast h1 {font-size: 20px;}
+#weatherForecast h2 {font-size: 16px;}
+#weatherForecast i {font-size: 30px;}
+
