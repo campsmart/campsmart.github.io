@@ -22,29 +22,13 @@
 
         <!-- Left side: list of the closest camp sites -->
         <div id="campsiteList">
-            <div>
-                <h1>Anacapa Island Campground</h1>
-                <image src="https://islandpackers.com/wp-content/uploads/2010/11/Photo-by-Tim-Hau-.Campground-Anacapa-Island.jpg" class="photo">
-                <h2>7 mi</h2>    
-            </div>
+            <campsite-preview name="Anacapa Island Campground" photo="https://islandpackers.com/wp-content/uploads/2010/11/Photo-by-Tim-Hau-.Campground-Anacapa-Island.jpg" distance=7></campsite-preview>
 
-            <div>
-                <h1>Buckeye Flats</h1>
-                <image src="./images/camp-mountain.jpg" class="photo">
-                <h2>15 mi</h2>
-            </div>
+            <campsite-preview name="Buckeye Flats" photo="./images/camp-mountain.jpg" distance=15></campsite-preview>
 
-            <div>
-                <h1>Deep Creek</h1>
-                <image src="./images/creek.jpg" class="photo">
-                <h2>31 mi</h2>
-            </div>
+            <campsite-preview name="Deep Creek" photo="./images/creek.jpg" distance=31></campsite-preview>
 
-            <div>
-                <h1>Lazy Shores</h1>
-                <image src="./images/beach-tent.jpg" class="photo">
-                <h2>54 mi</h2>
-            </div>
+            <campsite-preview name="Lazy Shores" photo="./images/beach-tent.jpg" distance=54></campsite-preview>                        
         </div>
 
         <!-- Center: information about the selected campsite-->
@@ -151,5 +135,6 @@
     </div>
 
 </div>
+<script src="components/CampsitePreview.js"></script>
 </body>
 </html>
