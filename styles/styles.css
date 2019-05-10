@@ -39,6 +39,17 @@ html {
 
 
 /* ==================== LANDING PAGE ==================== */
+#map {
+    height: 100%;
+}
+#error{
+    display: none;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    margin: 10px;
+    color: darkred;
+    font-weight: bold;
+}
 #forms{
     display: flex;
     flex-direction: column;

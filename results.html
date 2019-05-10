@@ -18,6 +18,18 @@
     </div>
     </a>
 
+    <div id="coords"></div>
+    <script>
+        let displayDiv = document.getElementById('coords');
+        let url = new URL(window.location.href);
+        let coords = url.searchParams.get('location').split(',');
+        let lat = coords[0];
+        let lng = coords[1];
+        displayDiv.innerHTML = `
+            Showing campsites near (${lat},${lng})
+        `;
+    </script>
+
     <div id="results">
 
         <!-- Left side: list of the closest camp sites -->
@@ -135,6 +147,7 @@
     </div>
 
 </div>
+<script src="scripts/locations.js"></script>
 <script src="components/CampsitePreview.js"></script>
 </body>
 </html>

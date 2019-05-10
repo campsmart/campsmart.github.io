@@ -16,7 +16,9 @@
         <h1>Camp Smart</h1>
     </div>
 
-    <form action="results.html">
+    <div id="error"></div>
+
+    <form action="results.html" onsubmit="return submitForm(this)">
     <div id="forms">
         <div id="locationInput">
             <h3>Where to camp?</h3>
@@ -43,9 +45,11 @@
         <input type="submit" value="Find Campsites" id="submitButton">
     </div>
     </form>
-    <script src="./scripts/script.js"></script>
-    
+    <div id="map"></div>
+
 </div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDycGHDgPTqapuPg9F9TcN0kzleBrgFKBE&libraries=places"></script>
+<script type="text/javascript" src="scripts/queryLocation.js"></script>
 </body>
 
 </html>
