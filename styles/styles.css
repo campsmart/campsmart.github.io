@@ -116,6 +116,14 @@ html {
 
 
 /* ==================== RESULTS PAGE ==================== */
+#loading {
+    display: none;
+    text-align: center;
+    margin: 2%;
+    padding: 3%;
+    border-radius: 5%;
+    background: rgba(255, 255, 255, 0.5);
+}
 #results {
     display: grid;
     grid-template-columns: 15% 70% 15%
