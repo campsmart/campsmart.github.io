@@ -30,8 +30,8 @@ html {
 }
 #header .logo{
     display: inline-flex;
-    width: 65px;
-    height: 65px;
+    width: 220px;
+    height: 150px;
     padding-right: 40px;
     padding-bottom: 10px;
 }
@@ -122,7 +122,7 @@ html {
     margin: 2%;
     padding: 3%;
     border-radius: 5%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.55);
 }
 #results {
     display: grid;
@@ -132,7 +132,7 @@ html {
     margin: 2%;
     padding: 3%;
     border-radius: 5%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.75);
 }
 #campsiteList, #weatherForecast {
     height: 600px;
@@ -162,7 +162,7 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 5%;
 
     border: inset;
