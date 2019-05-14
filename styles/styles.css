@@ -10,7 +10,6 @@ html {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
 }
 #container > a:link, #container > a:visited {color: black;}
 #container > a:hover {color: aqua;}
@@ -36,22 +35,7 @@ html {
     padding-right: 40px;
     padding-bottom: 10px;
 }
-a:link, a:visited {
-  font-size: 100px;
-  font-weight: bold;
-  text-shadow: 3px 5px 6px rgba(255, 255, 255, 0.5);
-  text-align: center;
-  color: black;
-  text-decoration: none;
-  display: inline-block;
-}
 
-<<<<<<< HEAD
-a:hover, a:active {
-  color: grey;
-}
-/* FORM INPUT */
-=======
 
 
 /* ==================== LANDING PAGE ==================== */
@@ -66,7 +50,6 @@ a:hover, a:active {
     color: darkred;
     font-weight: bold;
 }
->>>>>>> 3c18e99f536d960072a3d7ba340c72dc95daf175
 #forms{
     display: flex;
     flex-direction: column;
@@ -119,17 +102,6 @@ a:hover, a:active {
     margin-top: -2.5px;
     margin-right: -5px;
 }
-#icon-cal {
-    border: 1px solid rgb(183, 183, 183);
-    padding: 2.8px;
-    background-color: rgb(255, 255, 255);
-    outline: 0.2px solid rgb(112, 112, 112);
-    align-content: flex-end;
-    vertical-align: middle;
-    margin-top: -2.5px;
-    margin-right: -5px;
-}
-
 #icon-search {
     border: .9px solid rgb(183, 183, 183);
     padding: 1.8px;
@@ -154,15 +126,7 @@ a:hover, a:active {
 }
 #results {
     display: grid;
-    /*grid-template-columns: 15% 70% 15%;*/
-    grid-rows: 10% 70%;
-    height: 70%;
-}
-#resultsContainer{
-    display: grid;
-    grid-template-columns: 12% 50% 12%;
-    justify-content: center;
-    height: 70%;
+    grid-template-columns: 15% 70% 15%
 }
 #results > div{
     margin: 2%;
@@ -190,24 +154,6 @@ a:hover, a:active {
     justify-content: space-between;
     align-items: center;
 }
-<<<<<<< HEAD
-.preview{
-    margin: 5px;
-    padding: 5px;
-    align-items: flex-start;
-    background: rgba(255, 255, 255, 0.40);
-    border-radius: 20px;
-    border: 5px grey double;
-}
-.preview h1{
-    font-size: 20px;
-}
-.preview h2{
-    font-size: 12px;
-}
-.previewImage{
-    height: 50px;
-=======
 /* ===== Each campsite preview display */
 #campsiteList div{
     margin: 2%;
@@ -221,8 +167,7 @@ a:hover, a:active {
 
     border: inset;
     border-width: 2px;
-    border-color: gainsboro;    
->>>>>>> 3c18e99f536d960072a3d7ba340c72dc95daf175
+    border-color: gainsboro;
 }
 #campsiteList h1 {font-size: 20px;}
 #campsiteList h2 {font-size: 16px;}
@@ -235,6 +180,8 @@ a:hover, a:active {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    height: 540px;
+    overflow: scroll;
 }
 
 /* ===== Each sub-section in center display */
@@ -245,9 +192,10 @@ a:hover, a:active {
     justify-content: flex-start;
     align-items: center;*/
 
-/* without flex: */    
+/* without flex: */
     display: block;
     text-align: center;
+
 
     padding: 3%;
     margin: 1%;
@@ -292,15 +240,6 @@ a:hover, a:active {
     justify-content: space-between;
     align-items: center;
 }
-<<<<<<< HEAD
-.weatherDay{
-    margin: 5px;
-    padding: 5px;
-    align-items: flex-start;
-    background: rgba(255, 255, 255, 0.40);
-    border-radius: 20px;
-    border: 5px grey double;
-=======
 
 /* ===== Forecast for each day */
 #weatherForecast > div{
@@ -312,12 +251,10 @@ a:hover, a:active {
     align-items: center;
     background: rgba(255, 255, 255, 0.25);
     border-radius: 5%;
-    background: rgba(255, 255, 255, 0.25);
-    
+
     border: inset;
     border-width: 2px;
     border-color: gainsboro;
->>>>>>> 3c18e99f536d960072a3d7ba340c72dc95daf175
 }
 
 /* Div containing weather details */
@@ -326,8 +263,8 @@ a:hover, a:active {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 6em;
 }
 #weatherForecast h1 {font-size: 20px;}
 #weatherForecast h2 {font-size: 16px;}
 #weatherForecast i {font-size: 30px;}
-
