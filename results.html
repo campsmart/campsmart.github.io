@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 <div id="results">
  <a href="index.html">
     <div id="header">
@@ -67,10 +68,73 @@
                 <i class="fas fa-trash available"></i>
                 <i class="fas fa-shower available"></i>
                 <i class="fas fa-phone-slash unavailable"></i>
+=======
+<div id="container">
+
+    <a href="index.html">
+    <div id="header">
+        <image src="./images/campsmart.png" alt="Camp Smart logo" class="logo">
+        <h1>Camp Smart</h1>
+    </div>
+    </a>
+
+    <div id="loading">
+        <p id="loading-text">Loading...</p></br>
+        <img src='images/loading.gif' height="30px" width="30px" />
+    </div>
+
+    <div id="map"></div>
+    <div id="locationQuery"></div>
+    <div id="results">
+
+        <!-- Left side: list of the closest camp sites -->
+        <div id="campsiteList">                        
+        </div>
+
+        <!-- Center: information about the selected campsite-->
+        <div id="campsiteDetails">
+
+            <div id="overview">
+                <h1>Anacapa Island Campground</h1>
+                <image src="http://islandpackers.com/wp-content/uploads/2010/11/Photo-by-Tim-Hau-.Campground-Anacapa-Island.jpg" class="photo">
+                <p>Primitive camping is available (seven sites; $15 per night per site; reservations required). Picnic table, food storage box, and pit toilet are provided. No water is available. Distance from landing to campground is one-half mile and includes a 157-stair climb. </br>WARNING: Western gulls nest on Anacapa Island From April through mid-August. During this time, visitors will encounter seabird rookery conditions: guano, strong odor, constant noise, bird carcasses, and birds protecting their territory.</p>
             </div>
+
+            <div id="amenities">
+                <h2>Amenities</h2>
+                <div>
+                    <i class="fas fa-toilet available"></i>
+                    <i class="fas fa-trash unavailable"></i>
+                    <i class="fas fa-tint unavailable"></i>
+                    <i class="fas fa-shower unavailable"></i>
+                    <i class="fas fa-phone-slash unavailable"></i>
+                    <i class="fas fa-road unavailable"></i>
+                </div>
+            </div>
+
+            <div id="directions">
+                <h2>Directions</h2>
+                <p>Anacapa Island Campground is only accessible by boat. Visit our island transportation webpage for more information: http://www.nps.gov/chis/planyourvisit/island-transportation.htm</br>The hike to the campground is 157 stairs and .5 miles from the boat landing.
+                </p>
+                <a href="http://www.nps.gov/chis/planyourvisit/island-transportation.htm">http://www.nps.gov/chis/planyourvisit/island-transportation.htm</a></br>
+                <image src="./images/googlemaps.png" width="300px" class="map"/>
+            </div>
+
+            <div id="alerts">
+                <div>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <h2>Warning</h2>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <h3>Tire chains may be required</h3>
+                <p>When chain restrictions are in effect, tire chains are required for all vehicles in control areas, including vehicles with snow tires, 4WD vehicles, and AWD vehicles.</p>
+>>>>>>> 3c18e99f536d960072a3d7ba340c72dc95daf175
+            </div>
+
         </div>
 
         <!-- Right side: daily weather forecast for the selected days -->
+<<<<<<< HEAD
     <div id="weatherForecast">
 
             <!-- This is hard coded for now. The website will NOT hard code campsite information! -->
@@ -81,52 +145,70 @@
                     <div class="weatherHiLo">
                         <h2>72°F</h2>
                         <h2>51°F</h2>
+=======
+        <div id="weatherForecast">
+
+            <div>
+                <h1 class="date">April 10</h1>
+                <div>
+                    <i class="fas fa-sun condition"></i>
+                    <div>
+                        <h2 class="hi">75°F</h2>
+                        <h2 class="lo">51°F</h2>
+>>>>>>> 3c18e99f536d960072a3d7ba340c72dc95daf175
                     </div>
                 </div>
             </div>
-            <div class="weatherDay">
-                <h1>April 11</h1>
-                <div class="weatherStats">
-                    <span><i class="fas fa-sun"></i></span>
-                    <div class="weatherHiLo">
-                        <h2>68°F</h2>
-                        <h2>49°F</h2>
+
+            <div>
+                <h1 class="date">April 11</h1>
+                <div>
+                    <i class="fas fa-wind condition"></i>
+                    <div>
+                        <h2 class="hi">72°F</h2>
+                        <h2 class="lo">49°F</h2>
                     </div>
                 </div>
             </div>
-            <div class="weatherDay">
-                <h1>April 12</h1>
-                <div class="weatherStats">
-                    <span><i class="fas fa-wind"></i></span>
-                    <div class="weatherHiLo">
-                        <h2>69°F</h2>
-                        <h2>43°F</h2>
+
+            <div>
+                <h1 class="date">April 12</h1>
+                <div>
+                    <i class="fas fa-cloud condition"></i>
+                    <div>
+                        <h2 class="hi">65°F</h2>
+                        <h2 class="lo">47°F</h2>
                     </div>
                 </div>
             </div>
-            <div class="weatherDay">
-                <h1>April 13</h1>
-                <div class="weatherStats">
-                    <span><i class="fas fa-cloud"></i></span>
-                    <div class="weatherHiLo">
-                        <h2>62°F</h2>
-                        <h2>41°F</h2>
+
+            <div>
+                <h1 class="date">April 13</h1>
+                <div>
+                    <i class="fas fa-cloud condition"></i>
+                    <div>
+                        <h2 class="hi">63°F</h2>
+                        <h2 class="lo">43°F</h2>
                     </div>
                 </div>
             </div>
-            <div class="weatherDay">
-                <h1>April 14</h1>
-                <div class="weatherStats">
-                    <span><i class="fas fa-cloud-rain"></i></span>
-                    <div class="weatherHiLo">
-                        <h2>63°F</h2>
-                        <h2>45°F</h2>
+
+            <div>
+                <h1 class="date">April 14</h1>
+                <div>
+                    <i class="fas fa-cloud-rain condition"></i>
+                    <div>
+                        <h2 class="hi">59°F</h2>
+                        <h2 class="lo">41°F</h2>
                     </div>
                 </div>
             </div>
+
         </div>
+
     </div>
 
+<<<<<<< HEAD
     <!--
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
@@ -134,5 +216,11 @@
     <script src="/Users/jehuti/WebApps/campsmart.github.io/components/WeatherDisplay.js" type="text/jsx"></script>
     -->
 
+=======
+</div>
+<script src="components/customElements.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDycGHDgPTqapuPg9F9TcN0kzleBrgFKBE&libraries=places"></script>
+<script src="scripts/campsites.js"></script>
+>>>>>>> 3c18e99f536d960072a3d7ba340c72dc95daf175
 </body>
 </html>
