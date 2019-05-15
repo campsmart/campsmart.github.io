@@ -29,7 +29,7 @@ function getForecast(lat, lng, callback){
 // Example: 
 //      { date: "05/23", min: 32.44, max: 65.2, condition: "Partly sunny" }
 
-    const endpoint = 'http://api.apixu.com/v1/forecast.json';
+    const endpoint = 'https://api.apixu.com/v1/forecast.json';
     const key = '23eb70d96270409aa1a233300191004';
     const params = `key=${key}&q=${lat},${lng}&days=10`;
     const url = `${endpoint}?${params}`;
