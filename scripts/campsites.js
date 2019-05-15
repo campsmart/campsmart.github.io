@@ -1,26 +1,161 @@
+let previewList = [];
+
 window.onload = () => {
     let url = new URL(window.location.href);
     let coords = url.searchParams.get('location').split(',');
     let latlng = {lat: parseFloat(coords[0]), lng: parseFloat(coords[1])};
     let displayDiv = document.getElementById('locationQuery');
 
+
     showLoading();
     resolveLocation(latlng, (state, address) => {
         displayDiv.innerHTML = `Showing campsites near ${address}`;
         npsCampgrounds(state, latlng, (campgrounds) => {
             hideLoading();
-            let previewList = document.getElementById('campsiteList');
             for (let site of campgrounds){
                 console.log(`${site.name} - ${site.distance} mi`);
+                if (site.distance != undefined) {
                 let preview = document.createElement('campsite-preview');
                 preview.campground = site;
-                previewList.appendChild(preview);
+                previewList.push(preview.campground);
+                }
             }
+            loadSideBar(previewList);
         });
     });
-};
+}
 
 // =================================== Functions ===================================
+
+function loadSideBar(previewList) {
+// Dynamically creates sidebar with nearby campsites
+    for (let i = 0; i < previewList.length; ++i) {
+        var name = previewList[i].name;
+        var distance = previewList[i].distance;
+        var value = name + ' ' + '\n' + distance + ' miles away.';
+        var element = document.createElement("input");
+        element.setAttribute("type", "button");
+        element.setAttribute("id", "campsiteButton");
+        element.setAttribute("value", value);
+        element.setAttribute("name", name);
+        var add = document.getElementById("campsiteList");
+        add.appendChild(element);
+    }
+}
+
+
+document.addEventListener('click', function(e) {
+// Check for sidebar click events
+    if (e.target && e.target.type == 'button') {
+        updateCampSite(e.target.name);
+    }
+});
+
+
+function updateCampSite(camp) {
+// Loads new campsite information.
+    var newCamp;
+    for (i = 0; i < previewList.length; ++i) {
+        if (previewList[i].name == camp) {
+            newCamp = previewList[i];
+            break;
+        }
+    }
+    if (newCamp != undefined) {
+        document.getElementById("overview").innerHTML = `<h1>${newCamp.name}</h1><p>${newCamp.description}</p>`;
+        checkAmenities(newCamp);
+        getAlerts(newCamp);
+        getDirections(newCamp);
+    }
+}
+
+
+function getAlerts(camp) {
+// Update campsite warnings and policies
+    document.getElementById("alerts").innerHTML = `
+        <h2>Regulations and Policies</h2>
+        <i class="fas fa-exclamation-circle"></i>`;
+    if (camp.firePolicy == undefined && camp.regulations == undefined
+        || camp.firePolicy == '.' && camp.regulations == undefined) {
+        document.getElementById("alerts").innerHTML += `<p>Enjoy your trip!</p>`;
+        return;
+    }
+    if (camp.regulations != undefined) {
+        document.getElementById("alerts").innerHTML += `
+        <h3>Regulations:</h3>`;
+        if (camp.regulations.description != undefined) {
+            document.getElementById("alerts").innerHTML += ` <p>${camp.regulations.description}</p>`;
+        }
+        if (camp.regulations.url != undefined) {
+            document.getElementById("alerts").innerHTML += `<a href=${camp.regulations.url}>${camp.regulations.url}</a>`;
+        }
+    }
+    else {
+        document.getElementById("alerts").innerHTML += `<p>No current info.</p>`;
+    }
+    if (camp.firePolicy != undefined) {
+        document.getElementById("alerts").innerHTML += `
+        <h3>Fire Policy:</h3>
+        <p>${camp.firePolicy}</p>`;
+    }
+    else {
+        document.getElementById("alerts").innerHTML += `<p>No current info.</p>`;
+    }
+}
+
+function getDirections(camp) {
+// Get direction instructions and load map of area using google maps API.
+    if (camp.directions != undefined) {
+        document.getElementById("directions").innerHTML = `<h2>Directions</h2> <p>${camp.directions.description}</p>`;
+    }
+    var getMap;
+    var lngt = camp.location.lng;
+    var lat = camp.location.lat;
+        getMap = new google.maps.Map(document.getElementById("map"), {
+            center: new google.maps.LatLng(lat,lngt),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+    document.getElementById("map").innerHTML = `${getMap}`;
+}
+
+
+function checkAmenities(camp) {
+// Checks campsite amenities and updates icon depending on availability.
+    var amenit = "<h2>Amenities Available: </h2>";
+    if (camp.amenities.toilets == true) {
+        amenit += `<i class="fas fa-toilet available" title="Toilets available" aria-label="true"></i>`;
+    }
+    else {
+        amenit += `<i class="fas fa-toilet unavailable" title="Toilets unavailable" aria-label="true"></i>`;
+    }
+    if (camp.amenities.water == true) {
+        amenit += `<i class="fas fa-tint available" title="Water available" aria-label="true"></i>`;
+    }
+    else {
+        amenit += `<i class="fas fa-tint unavailable" title="Water unavailable" aria-label="true"></i>`;
+    }
+    if (camp.amenities.trash == true) {
+        amenit += `<i class="fas fa-trash available" title="Trash available" aria-label="true"></i>`;
+    }
+    else {
+        amenit += `<i class="fas fa-trash unavailable" title="Trash unavailable" aria-label="true"></i>`;
+    }
+    if (camp.amenities.showers == true) {
+        amenit += `<i class="fas fa-shower available" title="Showers available" aria-label="true"></i>`;
+    }
+    else {
+        amenit += `<i class="fas fa-shower unavailable" title="Showers unavailable" aria-label="true"></i>`;
+    }
+    if (camp.amenities.cell == true) {
+        amenit += `<i class="fas fa-phone available" title="Cellphone reception available" aria-label="true"></i>`;
+    }
+    else {
+        amenit += `<i class="fas fa-phone-slash unavailable" title="Cellphone reception unavailable" aria-label="true"></i>`;
+    }
+    document.getElementById("amenities").innerHTML = amenit;
+}
 
 
 function showLoading(){
@@ -28,14 +163,14 @@ function showLoading(){
 
     let loadingDiv = document.getElementById('loading');
     let loadingMessages = [
-        'Finding your happy place',
-        'Yes, it really is still loading',
-        'It\'s not us, it\'s the back end - we swear',
-        'Seriously, this service is being hosted on a literal potato',
-        'What do you expect? It\'s a web service developed by the government',
+        'Finding your happy place!',
+        'Yes, it really is still loading...',
+        'It\'s not us, it\'s the back end - we swear.',
+        'Seriously, this service is being hosted on a literal potato.',
+        'What do you expect? It\'s a web service developed by the government.',
         'Stay put, your results are coming soon!',
-        'Aaaalmost there ...',
-        'I hope your browser caches'
+        'Aaaalmost there...',
+        'I hope your browser caches.'
     ];
     let i = 0;
     let text = document.getElementById('loading-text');
@@ -88,7 +223,7 @@ async function resolveLocation(latlng, fn){
 
 async function npsCampgrounds(state, latlng, fn){
 // Find all the campgrounds in the given state (state) with the National Parks Service API.
-// Format the data returned for each campground and sort the campgrounds by increasing distance 
+// Format the data returned for each campground and sort the campgrounds by increasing distance
 // from the selected location (latlng)
 
 // If the API doesn't return the latitude and longitude for a campground, we try to find it with the

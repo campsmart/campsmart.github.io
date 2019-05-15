@@ -21,12 +21,14 @@ html {
     justify-content: flex-start;
     align-items: center;
     margin: 10px;
+
 }
 #header h1{
     display: inline-flex;
     font-size: 80px;
     font-weight: bold;
     text-shadow: 3px 5px 6px rgba(255, 255, 255, 0.5);
+   font-family: 'Biryani';
 }
 #header .logo{
     display: inline-flex;
@@ -39,8 +41,13 @@ html {
 
 
 /* ==================== LANDING PAGE ==================== */
+#place-map {
+    height: 100%;
+    width: 100%;
+}
 #map {
     height: 100%;
+    width: 100%;
 }
 #error{
     display: none;
@@ -49,6 +56,7 @@ html {
     margin: 10px;
     color: darkred;
     font-weight: bold;
+     font-family: 'Biryani';
 }
 #forms{
     display: flex;
@@ -61,19 +69,22 @@ html {
     padding-right: 140px;
     border-radius: 25px;
     margin-top: -30px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.75);
 }
 #forms #locationInput h3, #forms #dateInput h3{
     font-size: 20px;
     text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.9);
+     font-family: 'Biryani';
 }
 #forms #locationInput label, #forms #dateInput label{
     font-size: 16px;
+     font-family: 'Biryani';
 }
 #location {
     font-size: 10pt;
     width: 260px;
     height: 15px;
+    font-family: 'Biryani';
 }
 #submitButton{
     align-self: center;
@@ -91,6 +102,7 @@ html {
     border: 0.5px solid rgb(0, 102, 204);
     border-radius: 50%;
     padding: 2.4px;
+     font-family: 'Biryani';
 }
 #icon-calendar {
     border: 1px solid rgb(183, 183, 183);
@@ -146,6 +158,15 @@ html {
     border-radius: 5%;
 }*/
 
+#campsiteButton {
+    /* Campsite button */
+    height: 80px;
+    width: 200px;
+    padding: 10px;
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 5px;
+}
 
 /* ========== Left-side campsite preview list ========== */
 #campsiteList{
@@ -169,9 +190,12 @@ html {
     border-width: 2px;
     border-color: gainsboro;
 }
-#campsiteList h1 {font-size: 20px;}
-#campsiteList h2 {font-size: 16px;}
-#campsiteList .photo {width: 150px;}
+#campsiteList h1 {font-size: 20px;
+     font-family: 'Biryani';}
+#campsiteList h2 {font-size: 16px;
+     font-family: 'Biryani';}
+#campsiteList .photo {width: 150px;
+     font-family: 'Biryani';}
 
 
 /* ========== Center display with individual campsite info ========== */
@@ -206,10 +230,14 @@ html {
     border-width: 2px;
     border-color: gainsboro;
 }
-#campsiteDetails h1 {font-size: 28px;}
-#campsiteDetails h2 {font-size: 24px;}
-#campsiteDetails h3 {font-size: 20px;}
-#campsiteDetails p  {font-size: 16px;}
+#campsiteDetails h1 {font-size: 28px;
+     font-family: 'Biryani';}
+#campsiteDetails h2 {font-size: 24px;
+     font-family: 'Biryani';}
+#campsiteDetails h3 {font-size: 20px;
+     font-family: 'Biryani';}
+#campsiteDetails p  {font-size: 16px;
+     font-family: 'Biryani';}
 
 /* ===== Campsite overview sub-section */
 #campsiteDetails #overview .photo {width: 500px;}
