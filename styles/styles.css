@@ -130,7 +130,7 @@ html {
     background: rgba(255, 255, 255, 0.55);
 }
 #results {
-    display: grid;
+    display: none;
     grid-template-columns: 15% 70% 15%
 }
 #results > div{

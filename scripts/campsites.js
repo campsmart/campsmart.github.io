@@ -9,9 +9,10 @@ window.onload = () => {
     
     showLoading();
     resolveLocation(latlng, (state, address) => {
-        displayDiv.innerHTML = `Showing campsites near ${address}`;
         npsCampgrounds(state, latlng, (campgrounds) => {
             hideLoading();
+            displayDiv.innerHTML = `Showing campgrounds near ${address}`;
+            resultsShow();
             for (let site of campgrounds){
                 console.log(`${site.name} - ${site.distance} mi`);
                 if (site.distance != undefined) {
@@ -21,22 +22,30 @@ window.onload = () => {
                 }
             }
             loadSideBar(previewList);
+            updateCampSite(previewList[0].name);
         });
     });
 }
 
 // =================================== Functions ===================================
 
+function resultsShow(){
+// Makes the results div visible
+    let div = document.querySelector('#results');
+    div.style.display = 'grid';
+}
+
 function loadSideBar(previewList) {
 // Dynamically creates sidebar with nearby campsites
     for (let i = 0; i < previewList.length; ++i) {
         var name = previewList[i].name;
         var distance = previewList[i].distance;
-        var value = name + ' ' + '\n' + distance + ' miles away.';
-        var element = document.createElement("input");
+        var value = name + '</br>' + distance + ' miles away';
+        var element = document.createElement("button");
         element.setAttribute("type", "button");
         element.setAttribute("id", "campsiteButton");
-        element.setAttribute("value", value);
+        //element.setAttribute("value", value);
+        element.innerHTML = value;
         element.setAttribute("name", name);
         var add = document.getElementById("campsiteList");
         add.appendChild(element);
@@ -63,51 +72,110 @@ function updateCampSite(camp) {
     }
     if (newCamp != undefined) {
         document.getElementById("overview").innerHTML = `<h1>${newCamp.name}</h1><p>${newCamp.description}</p>`;
+        getWeather(newCamp);
+        getPhotos(newCamp);
         checkAmenities(newCamp);
         getAlerts(newCamp);
         getDirections(newCamp);
     }
 }
 
+async function getWeather(camp){
+    let container = document.getElementById('weatherForecast');
+    container.innerHTML = '';
+    if (camp.location){
+        getForecast(camp.location.lat, camp.location.lng, (forecasts) => {
+            for (let forecast of forecasts){
+                let el = document.createElement('forecast-day');
+                el.forecast = forecast;
+                container.appendChild(el);
+            }
+        });
+    }
+}
+
+async function getPhotos(camp){
+    let container = document.getElementById('campsitePhotos');
+    container.innerHTML = '';
+    if (camp.name){
+        findPhotos(camp.name, (photos)=>{
+            let slideshow = document.createElement('slide-show');
+            slideshow.photos = photos;
+            container.appendChild(slideshow);
+        })
+    }
+}
 
 function getAlerts(camp) {
 // Update campsite warnings and policies
-    document.getElementById("alerts").innerHTML = `
+    let alertsDiv = document.getElementById("alerts");
+    alertsDiv.innerHTML = `
         <h2>Regulations and Policies</h2>
         <i class="fas fa-exclamation-circle"></i>`;
+
     if (camp.firePolicy == undefined && camp.regulations == undefined
         || camp.firePolicy == '.' && camp.regulations == undefined) {
         document.getElementById("alerts").innerHTML += `<p>Enjoy your trip!</p>`;
         return;
     }
+
     if (camp.regulations != undefined) {
-        document.getElementById("alerts").innerHTML += `    
+        alertsDiv.innerHTML += `    
         <h3>Regulations:</h3>`;
         if (camp.regulations.description != undefined) { 
-            document.getElementById("alerts").innerHTML += ` <p>${camp.regulations.description}</p>`; 
+            alertsDiv.innerHTML += ` <p>${camp.regulations.description}</p>`; 
         }
         if (camp.regulations.url != undefined) { 
-            document.getElementById("alerts").innerHTML += `<a href=${camp.regulations.url}>${camp.regulations.url}</a>`;
+            alertsDiv.innerHTML += `<a href=${camp.regulations.url}>${camp.regulations.url}</a>`;
         }
     }
-    else {
-        document.getElementById("alerts").innerHTML += `<p>No current info.</p>`;
-    }
+
     if (camp.firePolicy != undefined) {
-        document.getElementById("alerts").innerHTML += `
+        alertsDiv.innerHTML += `
         <h3>Fire Policy:</h3>
         <p>${camp.firePolicy}</p>`;
     }
-    else {
-        document.getElementById("alerts").innerHTML += `<p>No current info.</p>`;
-    }
+
+    getParkAlerts(camp.parkCode, (alerts) => {
+        if (alerts && alerts.length > 0){
+            alertsDiv.innerHTML += `
+                <h3>Warning!</h3>
+                <div id="parkAlerts">
+            `;
+
+            for (alert of alerts){
+                if (alert.title){
+                    alertsDiv.innerHTML += `<h4>${alert.title}</h4>`;
+                }
+                if (alert.description){
+                    alertsDiv.innerHTML += `<p>${alert.description}</p>`;
+                }
+                if (alert.url){
+                    alertsDiv.innerHTML += `<a href=${alert.url}>More information</a>`;
+                }
+            }
+
+            alertsDiv.innerHTML += `</div>`;
+        }
+    });
 }
 
 function getDirections(camp) {
 // Get direction instructions and load map of area using google maps API.
+
+    let directionsDiv = document.getElementById("directions")
     if (camp.directions != undefined) {
-        document.getElementById("directions").innerHTML = `<h2>Directions</h2> <p>${camp.directions.description}</p>`;
+        if (camp.directions.description){
+            directionsDiv.innerHTML = `<h2>Directions</h2> <p>${camp.directions.description}</p>`;
+        }
+        if (camp.directions.url){
+            let link = document.createElement('a');
+            link.href = camp.directions.url;
+            link.innerHTML = camp.directions.url;
+            directionsDiv.appendChild(link);
+        }
     }
+
     var getMap;
     var lngt = camp.location.lng;
     var lat = camp.location.lat;
@@ -170,7 +238,7 @@ function showLoading(){
         'What do you expect? It\'s a web service developed by the government.',
         'Stay put, your results are coming soon!',
         'Aaaalmost there...',
-        'I hope your browser caches.'
+        'This is going to be SO worth the wait.'
     ];
     let i = 0;
     let text = document.getElementById('loading-text');
@@ -180,7 +248,7 @@ function showLoading(){
     window.setInterval(()=>{
         i = (i+1)%(loadingMessages.length);
         text.innerHTML = loadingMessages[i];
-    }, 4000);
+    }, 4500);
 }
 
 
@@ -233,11 +301,13 @@ async function npsCampgrounds(state, latlng, fn){
     const endpoint = 'https://developer.nps.gov/api/v1/campgrounds';
     const key = 'SRKyrg45JuZyDSc2kS0nNjV8dJ5w5BWpWpuMUHLe';
     const url = `${endpoint}?api_key=${key}&stateCode=${state}&limit=100`;
+    console.log(`Fetching camprounds from ${url} ...`);
     let response = await fetch(url);
     let json = await response.json();
 
     let campgrounds = [];
     let data = json.data;
+    console.log(`Retrieved ${data.length} campgrounds`)
     for (let site of data){
         let obj = {};
 
@@ -379,7 +449,7 @@ function findCoords(name){
 // Given a string, try to resolve that string into latitude and longitude coordinates
 
     return new Promise( (resolve, reject) => {
-        let container = document.getElementById('map');
+        let container = document.getElementById('findCoords');
         let service = new google.maps.places.PlacesService(container);
         service.findPlaceFromQuery( {query: name, fields: ['geometry.location']}, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK && results[0]){
