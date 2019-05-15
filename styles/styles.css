@@ -39,8 +39,13 @@ html {
 
 
 /* ==================== LANDING PAGE ==================== */
+#place-map {
+    height: 100%;
+    width: 100%;
+}
 #map {
     height: 100%;
+    width: 100%;
 }
 #error{
     display: none;
@@ -146,6 +151,15 @@ html {
     border-radius: 5%;
 }*/
 
+#campsiteButton {
+    /* Campsite button */
+    height: 80px;
+    width: 200px;
+    padding: 10px;
+    opacity: 0.7;
+    background-color: white;
+    border-radius: 5px;
+}
 
 /* ========== Left-side campsite preview list ========== */
 #campsiteList{
