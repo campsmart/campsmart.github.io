@@ -97,13 +97,15 @@ async function getWeather(camp){
 async function getPhotos(camp){
     let container = document.getElementById('campsitePhotos');
     container.innerHTML = '';
-    if (camp.name){
-        findPhotos(camp.name, (photos)=>{
+    findPhotos(camp.name, (photos)=>{
+        if (photos && photos.length > 0){
             let slideshow = document.createElement('slide-show');
             slideshow.photos = photos;
             container.appendChild(slideshow);
-        })
-    }
+        } else{
+            container.style.display = 'none';
+        }
+    })
 }
 
 function getAlerts(camp) {
