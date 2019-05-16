@@ -25,7 +25,6 @@ previewTemplate.innerHTML = `
             font-size: 16px;
         }
     </style>
-
     <div>
         <h1></h1>
         <img class="photo" src="${defaultPreviewImage}" />
@@ -44,10 +43,6 @@ class CampsitePreview extends HTMLElement{
         this.distanceElement = this.shadow.querySelector('h2');
     }
 
-    // Attributes cannot be objects, so 'campground' is a property rather than an attribute
-    // get campground(){ return this.getAttribute('campground'); }
-    // set campground(value){ this.setAttribute('campground', value); }
-
     connectedCallback(){
         if (this.campground != null){
             if (this.campground.name != null){
@@ -63,3 +58,133 @@ class CampsitePreview extends HTMLElement{
     }
 }
 customElements.define('campsite-preview', CampsitePreview);
+
+
+// ====================================================================================
+
+const forecastTemplate = document.createElement('template');
+forecastTemplate.innerHTML = `
+    <style>
+        .container {
+            margin: 2%;
+            padding: 3%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 5%;
+            border: inset;
+            border-width: 2px;
+            border-color: gainsboro;
+        }
+        .details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 6em;
+        }
+        h1 {font-size: 20px;}
+        h2 {font-size: 16px;}
+        i {font-size: 30px;}
+    </style>
+    <div class="container">
+       <h1 class="date">Date</h1>
+       <h2 class="condition">Condition</h2>
+       <div class="details">
+           <h2>High</h2>
+           <h2 class="hi">??°F</h2>
+       </div>
+      <div class="details">
+           <h2>Low</h2>
+           <h2 class="lo">??°F</h2>
+       </div>
+    </div>
+`;
+class ForecastDay extends HTMLElement{
+    constructor(){
+        super();
+        this.shadow = this.attachShadow({mode: 'open'});
+        this.shadow.appendChild( forecastTemplate.content.cloneNode(true) );
+
+        this.dateElement = this.shadow.querySelector('.date');
+        this.conditionElement = this.shadow.querySelector('.condition');
+        this.hiElement = this.shadow.querySelector('.hi');
+        this.loElement = this.shadow.querySelector('.lo');
+    }
+
+    connectedCallback(){
+        if (this.forecast != null){
+            this.dateElement.innerHTML = this.forecast.date;
+            this.conditionElement.innerHTML = this.forecast.condition;
+            this.hiElement.innerHTML = `${this.forecast.max}°F`;
+            this.loElement.innerHTML = `${this.forecast.min}°F`;
+        }
+    }
+}
+customElements.define('forecast-day', ForecastDay);
+
+
+
+
+const slideshowTemplate = document.createElement('template');
+slideshowTemplate.innerHTML = `
+    <style>
+        div {
+            display: flex;
+            flex-direction: row;
+        }
+        img {
+            width: 500px;
+        }
+        button {
+            border-color: black;
+            border-width: 1px;
+        }
+    </style>
+    <div>
+        <button id="prev" type="button"><-</button>
+        <img />
+        <button id="next" type="button">-></button>
+    </div>
+`;
+class SlideShow extends HTMLElement{
+    constructor(){
+        super();
+        this.shadow = this.attachShadow({mode: 'open'});
+        this.shadow.appendChild( slideshowTemplate.content.cloneNode(true) );
+
+        this.imgElement = this.shadow.querySelector('img');
+        this.prevElement = this.shadow.querySelector('#prev');
+        this.nextElement = this.shadow.querySelector('#next');
+
+        this.currPhoto = 0;
+        this.next = this.next.bind(this);
+        this.prev = this.prev.bind(this);
+    }
+
+    prev(){
+        if (this.photos && this.photos.length > 0){
+            this.currPhoto = (this.currPhoto - 1) % (this.photos.length);
+            let photo = this.photos[Math.abs(this.currPhoto)];
+            this.imgElement.src = photo;
+        }
+    }
+
+    next(){
+        if (this.photos && this.photos.length > 0){
+            this.currPhoto = (this.currPhoto + 1) % (this.photos.length);
+            let photo = this.photos[this.currPhoto];
+            this.imgElement.src = photo;
+        }
+    }
+
+    connectedCallback(){
+        if (this.photos && this.photos.length > 0){
+            this.imgElement.src = this.photos[this.currPhoto];
+            this.prevElement.addEventListener('click', this.prev);
+            this.nextElement.addEventListener('click', this.next);
+        }
+    }
+}
+customElements.define('slide-show', SlideShow);
