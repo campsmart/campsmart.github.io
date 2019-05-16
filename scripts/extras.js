@@ -45,10 +45,11 @@ function getForecast(lat, lng, callback){
             let min = parseFloat(day.day.mintemp_f);
             let max = parseFloat(day.day.maxtemp_f);
             let condition = day.day.condition.text;
+            let icon = day.day.condition.icon;
             // For a list of all possible conditions:
             // http://www.apixu.com/doc/Apixu_weather_conditions.json
             days.push({
-                date, min, max, condition
+                date, min, max, condition, icon
             });
         }
         callback(days);

@@ -1,4 +1,7 @@
-let previewList = [];
+
+let previewList = []; 
+var map;
+var mapMarker;
 
 window.onload = () => {
     let url = new URL(window.location.href);
@@ -6,7 +9,16 @@ window.onload = () => {
     let latlng = {lat: parseFloat(coords[0]), lng: parseFloat(coords[1])};
     let displayDiv = document.getElementById('locationQuery');
 
-
+    // Initialize the map here
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(latlng.lat, latlng.lng),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    });
+    mapMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(latlng.lat, latlng.lng),
+        map: map,
+    });
     showLoading();
     resolveLocation(latlng, (state, address) => {
         npsCampgrounds(state, latlng, (campgrounds) => {
@@ -166,7 +178,7 @@ function getAlerts(camp) {
 function getDirections(camp) {
 // Get direction instructions and load map of area using google maps API.
 
-    let directionsDiv = document.getElementById("directions")
+    let directionsDiv = document.getElementById("directionsText")
     if (camp.directions != undefined) {
         if (camp.directions.description){
             directionsDiv.innerHTML = `<h2>Directions</h2> <p>${camp.directions.description}</p>`;
@@ -179,16 +191,30 @@ function getDirections(camp) {
         }
     }
 
-    var getMap;
-    var lngt = camp.location.lng;
-    var lat = camp.location.lat;
-        getMap = new google.maps.Map(document.getElementById("map"), {
-            center: new google.maps.LatLng(lat,lngt),
-            zoom: 8,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
 
-    document.getElementById("map").innerHTML = `${getMap}`;
+    updateMap(camp.location.lat, camp.location.lng);
+    // var getMap;
+    // var lngt = camp.location.lng;
+    // var lat = camp.location.lat;
+    // let coords = new google.maps.LatLng(lat,lngt);
+    //     getMap = new google.maps.Map(document.getElementById("map"), {
+    //         center: coords,
+    //         zoom: 8,
+    //         mapTypeId: google.maps.MapTypeId.HYBRID
+    //     });
+
+    //   var marker = new google.maps.Marker({
+    //     position: coords,
+    //     map: getMap,
+    //     title: 'Campground'
+    //   });
+}
+
+
+function updateMap(lat, lng){
+    let coords = new google.maps.LatLng(lat,lng);
+    map.setCenter(coords);
+    mapMarker.setPosition(coords);
 }
 
 
