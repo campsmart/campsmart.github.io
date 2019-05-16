@@ -1,6 +1,6 @@
 # CampSmart
 Plan your next outdoor adventure the smart way
-
+https://campsmart.github.io
 
 ## Developers
 - Helena
