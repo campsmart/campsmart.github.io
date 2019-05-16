@@ -67,6 +67,7 @@ const forecastTemplate = document.createElement('template');
 forecastTemplate.innerHTML = `
     <style>
         .container {
+            width: 150px;
             margin: 2%;
             padding: 3%;
             display: flex;
@@ -86,14 +87,17 @@ forecastTemplate.innerHTML = `
             align-items: center;
             width: 6em;
         }
+        
         h1 {font-size: 20px;}
         h2 {font-size: 16px;}
         i {font-size: 30px;}
+        img {height: 30px; width: 30px;}
     </style>
 
     <div class="container">
        <h1 class="date">Date</h1>
        <h2 class="condition">Condition</h2>
+    <img class="icon" src="" alt=""></img>
        <div class="details">
            <h2>High</h2>
            <h2 class="hi">??°F</h2>
@@ -114,12 +118,15 @@ class ForecastDay extends HTMLElement{
         this.conditionElement = this.shadow.querySelector('.condition');
         this.hiElement = this.shadow.querySelector('.hi');
         this.loElement = this.shadow.querySelector('.lo');
+        this.iconElement = this.shadow.querySelector('.icon');
     }
 
     connectedCallback(){
         if (this.forecast != null){
             this.dateElement.innerHTML = this.forecast.date;
             this.conditionElement.innerHTML = this.forecast.condition;
+            this.iconElement.setAttribute("src","https:" + this.forecast.icon);
+            this.iconElement.setAttribute("alt",this.forecast.condition);
             this.hiElement.innerHTML = `${this.forecast.max}°F`;
             this.loElement.innerHTML = `${this.forecast.min}°F`;
         }
