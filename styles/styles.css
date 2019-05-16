@@ -4,6 +4,8 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgb(158, 186, 202);
+    font-family: 'Biryani';
+
 }
 #container{
     display: flex;
@@ -13,6 +15,7 @@ html {
 }
 #container > a:link, #container > a:visited {color: black;}
 #container > a:hover {color: aqua;}
+#container > a:link {text-decoration: none;}
 
 /* ========== Camp Smart header ========== */
 #header{
@@ -46,7 +49,7 @@ html {
     padding: 20px;
     margin: 10px;
     color: darkred;
-    font-weight: bold;
+    font-weight: bold
 }
 #forms{
     display: flex;
@@ -58,9 +61,13 @@ html {
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.8);
 }
+#locationQuery{
+  font-family: 'Candal';
+}
 #forms #locationInput h3, #forms #dateInput h3{
     font-size: 20px;
-    text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.9)
+     ;
 }
 #forms #locationInput label, #forms #dateInput label{
     font-size: 16px;
@@ -184,8 +191,8 @@ html {
     border-width: 2px;
     border-color: gainsboro;
 }
-#campsiteList h1 {font-size: 20px;}
-#campsiteList h2 {font-size: 16px;}
+#campsiteList h1 {font-size: 20px;  }
+#campsiteList h2 {font-size: 16px;  }
 #campsiteList .photo {width: 150px;}
 
 
@@ -221,10 +228,18 @@ html {
     border-width: 2px;
     border-color: gainsboro;
 }
-#campsiteDetails h1 {font-size: 28px;}
-#campsiteDetails h2 {font-size: 24px;}
-#campsiteDetails h3 {font-size: 20px;}
-#campsiteDetails p  {font-size: 16px;}
+#campsiteDetails h1 {
+    font-size: 28px;
+     }
+#campsiteDetails h2 {
+    font-size: 24px;
+      }
+#campsiteDetails h3 {
+
+    font-size: 20px;}
+#campsiteDetails p  {
+  font-size: 16px;
+    }
 
 /* ===== Campsite overview sub-section */
 #campsiteDetails #overview .photo {width: 500px;}
@@ -236,7 +251,7 @@ html {
     justify-content: space-around;
     align-items: center;
 }
-#campsiteDetails #amenities i {font-size: 30px; margin: 5px;}
+#campsiteDetails #amenities i {font-size: 30px;    margin: 5px;}
 #campsiteDetails #amenities .available {color: darkgreen;}
 #campsiteDetails #amenities .unavailable {color: darkred;}
 
@@ -251,7 +266,7 @@ html {
 
 /* ===== Campsite alerts sub-section */
 #campsiteDetails #alerts div {display: flex; flex-direction: row; align-items: center; justify-content: center;}
-#campsiteDetails #alerts h2, #campsiteDetails #alerts i {color: red;}
+#campsiteDetails #alerts h2, #campsiteDetails #alerts i {color: red;  }
 
 
 /* ========== Right-side weather forecast ========== */
@@ -286,6 +301,6 @@ html {
     align-items: center;
     width: 6em;
 }
-#weatherForecast h1 {font-size: 20px;}
-#weatherForecast h2 {font-size: 16px;}
-#weatherForecast i {font-size: 30px;}
+#weatherForecast h1 {font-size: 20px;  }
+#weatherForecast h2 {font-size: 16px;  }
+#weatherForecast i {font-size: 30px;  }

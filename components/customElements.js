@@ -25,7 +25,6 @@ previewTemplate.innerHTML = `
             font-size: 16px;
         }
     </style>
-
     <div>
         <h1></h1>
         <img class="photo" src="${defaultPreviewImage}" />
@@ -76,7 +75,6 @@ forecastTemplate.innerHTML = `
             align-items: center;
             background: rgba(255, 255, 255, 0.25);
             border-radius: 5%;
-
             border: inset;
             border-width: 2px;
             border-color: gainsboro;
@@ -93,7 +91,6 @@ forecastTemplate.innerHTML = `
         i {font-size: 30px;}
         img {height: 30px; width: 30px;}
     </style>
-
     <div class="container">
        <h1 class="date">Date</h1>
        <h2 class="condition">Condition</h2>
@@ -152,7 +149,6 @@ slideshowTemplate.innerHTML = `
             border-width: 1px;
         }
     </style>
-
     <div>
         <button id="prev" type="button"><-</button>
         <img />

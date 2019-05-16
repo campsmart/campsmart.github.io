@@ -1,3 +1,4 @@
+
 let previewList = []; 
 var map;
 var mapMarker;
@@ -7,7 +8,7 @@ window.onload = () => {
     let coords = url.searchParams.get('location').split(',');
     let latlng = {lat: parseFloat(coords[0]), lng: parseFloat(coords[1])};
     let displayDiv = document.getElementById('locationQuery');
-    
+
     // Initialize the map here
     map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(latlng.lat, latlng.lng),
@@ -18,7 +19,6 @@ window.onload = () => {
         position: new google.maps.LatLng(latlng.lat, latlng.lng),
         map: map,
     });
-    
     showLoading();
     resolveLocation(latlng, (state, address) => {
         npsCampgrounds(state, latlng, (campgrounds) => {
@@ -135,12 +135,12 @@ function getAlerts(camp) {
     }
 
     if (camp.regulations != undefined) {
-        alertsDiv.innerHTML += `    
+        alertsDiv.innerHTML += `
         <h3>Regulations:</h3>`;
-        if (camp.regulations.description != undefined) { 
-            alertsDiv.innerHTML += ` <p>${camp.regulations.description}</p>`; 
+        if (camp.regulations.description != undefined) {
+            alertsDiv.innerHTML += ` <p>${camp.regulations.description}</p>`;
         }
-        if (camp.regulations.url != undefined) { 
+        if (camp.regulations.url != undefined) {
             alertsDiv.innerHTML += `<a href=${camp.regulations.url}>${camp.regulations.url}</a>`;
         }
     }
@@ -190,6 +190,7 @@ function getDirections(camp) {
             directionsDiv.appendChild(link);
         }
     }
+
 
     updateMap(camp.location.lat, camp.location.lng);
     // var getMap;
@@ -319,7 +320,7 @@ async function resolveLocation(latlng, fn){
 
 async function npsCampgrounds(state, latlng, fn){
 // Find all the campgrounds in the given state (state) with the National Parks Service API.
-// Format the data returned for each campground and sort the campgrounds by increasing distance 
+// Format the data returned for each campground and sort the campgrounds by increasing distance
 // from the selected location (latlng)
 
 // If the API doesn't return the latitude and longitude for a campground, we try to find it with the

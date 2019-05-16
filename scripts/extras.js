@@ -26,7 +26,7 @@ function getForecast(lat, lng, callback){
 // Given a latitude and longitude, finds the weather forecast in that area (Fahrenheit)
 // Returns a list of forecast objects:
 //      { date: <string>, min: <float>, max: <float>, condition: <string> }
-// Example: 
+// Example:
 //      { date: "05/23", min: 32.44, max: 65.2, condition: "Partly sunny" }
 
     const endpoint = 'https://api.apixu.com/v1/forecast.json';
