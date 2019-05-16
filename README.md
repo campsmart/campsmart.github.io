@@ -3,9 +3,10 @@ Plan your next outdoor adventure the smart way
 https://campsmart.github.io
 
 ## Developers
-- Helena
-- Diana
-- Chantalle
+- Helena Christensen
+- Diana Joya
+- Chantalle Bril
+- Dennis Durant
 
 ## Services Used
 - [National Park Service API](https://www.nps.gov/subjects/developer/api-documentation.htm)
