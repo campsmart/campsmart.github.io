@@ -39,10 +39,7 @@ html {
 
 
 /* ==================== LANDING PAGE ==================== */
-#map {
-    height: 300px;
-    width: 300px;
-}
+
 #error{
     display: none;
     background: rgba(255, 255, 255, 0.6);
@@ -54,15 +51,12 @@ html {
 #forms{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding-top: 50px;
+    padding-top: 40px;
     padding-bottom: 60px;
-    padding-left: 140px;
-    padding-right: 140px;
+    padding-left: 130px;
+    padding-right: 130px;
     border-radius: 25px;
-    margin-top: -30px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
 }
 #forms #locationInput h3, #forms #dateInput h3{
     font-size: 20px;
@@ -117,13 +111,24 @@ html {
 
 
 /* ==================== RESULTS PAGE ==================== */
+#place-map {
+    height: 100%;
+    width: 100%;
+}
+#map {
+    height: 100%;
+    width: 100%;
+}
 #loading {
     display: none;
     text-align: center;
     margin: 2%;
     padding: 3%;
-    border-radius: 5%;
-    background: rgba(255, 255, 255, 0.55);
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.6);
 }
 #results {
     display: none;
@@ -236,7 +241,7 @@ html {
 #campsiteDetails #amenities .unavailable {color: darkred;}
 
 /* ===== Campsite directions sub-section */
-#campsiteDetails #directions #map {width: 300px;}
+#campsiteDetails #directions #map {width: 300px; height: 300px;}
 #campsiteDetails #directions {
     display: flex;
     flex-direction: column;

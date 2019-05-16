@@ -23,7 +23,6 @@ window.onload = () => {
     resolveLocation(latlng, (state, address) => {
         npsCampgrounds(state, latlng, (campgrounds) => {
             hideLoading();
-            displayDiv.innerHTML = `Showing campgrounds near ${address}`;
             resultsShow();
             for (let site of campgrounds){
                 console.log(`${site.name} - ${site.distance} mi`);
@@ -33,6 +32,8 @@ window.onload = () => {
                 previewList.push(preview.campground);
                 }
             }
+            var campgs = "Showing " + previewList.length + " campgrounds near: " + address;
+            displayDiv.innerHTML = campgs;
             loadSideBar(previewList);
             updateCampSite(previewList[0].name);
         });
