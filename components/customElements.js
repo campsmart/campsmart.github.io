@@ -88,13 +88,14 @@ forecastTemplate.innerHTML = `
         
         h1 {font-size: 20px;}
         h2 {font-size: 16px;}
+        h3 {font-size: 14px;}
         i {font-size: 30px;}
-        img {height: 30px; width: 30px;}
+        img {height: 50px; width: 50px;}
     </style>
     <div class="container">
        <h1 class="date">Date</h1>
-       <h2 class="condition">Condition</h2>
-    <img class="icon" src="" alt=""></img>
+       <img class="icon" src="" alt=""></img>
+       <h3 class="condition">Condition</h3>
        <div class="details">
            <h2>High</h2>
            <h2 class="hi">??°F</h2>
